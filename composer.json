@@ -20,7 +20,9 @@
     "ext-json": "*",
     "ext-ftp": "*",
     "ext-gd": "*",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "league/route": "^6.2",
+    "league/plates": "^3.6"
   },
   "require-dev": {
     "phpunit/phpunit": "^10.0",
