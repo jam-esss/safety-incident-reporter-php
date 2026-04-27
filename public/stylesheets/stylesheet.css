@@ -1,0 +1,124 @@
+/* © James Pink-Gyett 2026 */
+
+/* Import Fonts */
+
+/* https://fonts.google.com/specimen/Outfit */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* Global Variables */
+:root {
+    /* https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */
+    --background-colour-1: #CED4DA;
+    --background-colour-2: #e9ecef;
+    --background-colour-3: #ADB5BD;
+    --background-colour-4: #212529;
+
+    /* https://coolors.co/palette/250902-38040e-640d14-800e13-ad2831 */
+    --colour-1: #800e13;
+    --colour-1-hl: #640d14;
+
+    --font-1: "Outfit";
+}
+
+body {
+    font-family: var(--font-1);
+    background-color: var(--background-colour-1);
+}
+section{
+    margin-top: calc(100px);
+    min-height: calc(100vh - 100px);
+}
+a:not([href]) {
+    cursor: default;
+}
+
+/* BOOTSTRAP OVERWRITES */
+
+/* .bg */
+.bg-colour-1 {
+    background-color: var(--background-colour-1);
+}
+
+.bg-colour-2 {
+    background-color: var(--background-colour-2);
+}
+
+.bg-colour-3 {
+    background-color: var(--background-colour-3);
+}
+
+.bg-colour-4 {
+    background-color: var(--background-colour-4);
+}
+
+/* .btn */
+.btn-logo-ipsum{
+    background-color: var(--colour-1);
+    color: #fff;
+}
+.btn-logo-ipsum:hover{
+    background-color: var(--colour-1-hl);
+    color: #fff;
+}
+
+nav{
+    border-bottom: 1px solid var(--colour-1)
+}
+
+.nav-link{
+    color: var(--colour-1);
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--colour-1-hl);
+}
+
+.bg-image-1{
+    /* Courtesy of @hojipago https://unsplash.com/photos/several-cranes-above-the-buildings-D46mXLsQRJw */
+    background-image: url('/images/cranes.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* TILES */
+.tile, .tile-wide {
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+    padding: 1rem;
+}
+
+.tile { aspect-ratio: 1 / 1; }
+.tile-wide { aspect-ratio: 2 / 1; }
+
+
+.tile:active, .tile-wide:active {
+    transform: scale(0.97);
+}
+
+.tile i, .tile-wide i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.tile span, .tile-wide span {
+    font-size: .75rem;
+    color: white;
+    text-align: center;
+}
