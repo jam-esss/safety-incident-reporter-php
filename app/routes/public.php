@@ -1,8 +1,7 @@
 <?php
 /** @var Router $router */
 
+use App\Controllers\public\HomeController;
 use League\Route\Router;
 
-$router->get('/', function () {
-    return response('Hello World!!!');
-});
+$router->get('/', [HomeController::class, 'index'])->setName('index');
