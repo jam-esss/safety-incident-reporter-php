@@ -20,8 +20,8 @@
 <?= $this->fetch('templates/header') ?>
 <?= $this->section('content') ?>
 <?= $this->section('templates/footer') ?>
-</body>
 <!-- Import main.js which includes Bootstrap's JS -->
 <script src="/scripts/main.js" type="module"></script>
 <?= $this->section('scripts') ?>
+</body>
 </html>
