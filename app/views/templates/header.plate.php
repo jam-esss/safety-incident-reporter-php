@@ -32,14 +32,14 @@
                     </li>
 
                     <li class="nav-item p-3">
-                        <a class="nav-link fs-5" href="">
+                        <a class="nav-link fs-5" href="<?= route('client.dashboard') ?>">
                             <i class="bi bi-speedometer2"></i>
                             Dashboard
                         </a>
                     </li>
 
                     <li class="nav-item p-3">
-                        <a class="nav-link fs-5" href="">
+                        <a class="nav-link fs-5" href="<?= route('client.contact') ?>">
                             <i class="bi bi-chat-dots"></i>
                             Contact
                         </a>

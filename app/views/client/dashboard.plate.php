@@ -21,7 +21,7 @@ $this->stop();
     <div class="row d-flex justify-content-center align-items-center m-1">
 
         <div class="col-4 col-md-3 g-0 p-1">
-            <a href="/" class="tile btn-logo-ipsum">
+            <a href="<?= route('index') ?>" class="tile btn-logo-ipsum">
                 <i class="bi bi-house-door-fill"></i>
                 <span>
                     Home
@@ -57,7 +57,7 @@ $this->stop();
         </div>
 
         <div class="col-8 col-md-6 g-0 p-1">
-            <a href="/reports/form.html" class="tile-wide btn-logo-ipsum">
+            <a href="<?= route('client.incidentform') ?>" class="tile-wide btn-logo-ipsum">
                 <i class="bi bi-flag-fill"></i>
                 <span>
                     Report Incident
