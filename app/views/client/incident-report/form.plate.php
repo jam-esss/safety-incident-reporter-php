@@ -1,5 +1,5 @@
 <?php
-$this->layout('templates/layout', ['title'=>'Home','description'=>'Logoipsum Homepage']);
+$this->layout('templates/layout', ['title' => 'Incident Report', 'description' => 'Logoipsum Incident Report']);
 ?>
 <?php
 $this->push('styles');
@@ -24,171 +24,171 @@ $this->stop();
         <form class="row g-3 needs-validation w-100" id="contactForm" novalidate>
 
             <h1>
-Report an Incident
-</h1>
+                Report an Incident
+            </h1>
 
             <h2>
-Your Information
-</h2>
+                Your Information
+            </h2>
 
             <div class="col-md-4">
                 <label for="userFullName" class="form-label">
-Full Name
-</label>
+                    Full Name
+                </label>
                 <input type="text" class="form-control" id="userFullname" minlength="5" required>
                 <div class="invalid-feedback">
-Invalid Input.
+                    Invalid Input.
                 </div>
             </div>
 
             <div class="col-md-4">
                 <label for="userEmployeeNumber" class="form-label">
-Employee Number
-</label>
+                    Employee Number
+                </label>
                 <input type="text" class="form-control" id="userEmployeeNumber" minlength="5" required>
                 <div class="invalid-feedback">
-Invalid Input.
+                    Invalid Input.
                 </div>
             </div>
 
             <div class="col-md-4">
                 <label for="userJobRole" class="form-label">
-Job Role
-</label>
+                    Job Role
+                </label>
                 <select class="form-select" id="userJobRole" required>
                     <option selected disabled value="">
-    Choose...
+                        Choose...
                     </option>
                     <option>
-Labourer
+                        Labourer
                     </option>
                     <option>
-Carpenter
+                        Carpenter
                     </option>
                     <option>
-Electrician
+                        Electrician
                     </option>
                     <option>
-Plumber
+                        Plumber
                     </option>
                     <option>
-Other
+                        Other
                     </option>
                 </select>
             </div>
 
             <h2>
-Their Information
-</h2>
+                Their Information
+            </h2>
 
             <div class="col-md-4">
                 <label for="victimFullName" class="form-label">
-Full Name
-</label>
+                    Full Name
+                </label>
                 <input type="text" class="form-control" id="victimFullName" minlength="5" required>
                 <div class="invalid-feedback">
-Invalid Input.
+                    Invalid Input.
                 </div>
             </div>
 
             <div class="col-md-4">
                 <label for="victimEmployeeNumber" class="form-label">
-Employee Number
-</label>
+                    Employee Number
+                </label>
                 <input type="text" class="form-control" id="victimEmployeeNumber" minlength="5" required>
                 <div class="invalid-feedback">
-Invalid Input.
+                    Invalid Input.
                 </div>
             </div>
 
             <div class="col-md-4">
                 <label for="victimJobRole" class="form-label">
-Job Role
-</label>
+                    Job Role
+                </label>
                 <select class="form-select" id="victimJobRole" required>
                     <option selected disabled value="">
-    Choose...
+                        Choose...
                     </option>
                     <option>
-Labourer
+                        Labourer
                     </option>
                     <option>
-Carpenter
+                        Carpenter
                     </option>
                     <option>
-Electrician
+                        Electrician
                     </option>
                     <option>
-Plumber
+                        Plumber
                     </option>
                     <option>
-Other
+                        Other
                     </option>
                 </select>
             </div>
 
             <h2>
-Further Information
-</h2>
+                Further Information
+            </h2>
 
             <div class="col-md-4">
                 <label for="siteName" class="form-label">
-Site
+                    Site
                 </label>
                 <input type="text" class="form-control" id="siteName" minlength="5" required>
                 <div class="invalid-feedback">
-Invalid Input.
+                    Invalid Input.
                 </div>
             </div>
 
             <div class="col-md-4">
                 <label for="time" class="form-label">
-Time
+                    Time
                 </label>
                 <input type="time" class="form-control" id="time" required>
                 <div class="invalid-feedback">
-Invalid Input.
+                    Invalid Input.
                 </div>
             </div>
 
             <div class="col-md-4">
                 <label for="date" class="form-label">
-Date
+                    Date
                 </label>
                 <input type="date" class="form-control" id="date" required>
                 <div class="invalid-feedback">
-Invalid Input.
+                    Invalid Input.
                 </div>
             </div>
 
             <h3>
-Severity
+                Severity
             </h3>
 
             <div class="col-4">
                 <label for="severityLow" class="form-label">
-Low
+                    Low
                 </label>
                 <input name="severity" type="radio" class="form-check-input" id="severityLow" required>
             </div>
 
             <div class="col-4">
                 <label for="severityMedium">
-Medium
+                    Medium
                 </label>
                 <input name="severity" type="radio" class="form-check-input" id="severityMedium">
             </div>
 
             <div class="col-4">
                 <label for="severityHigh">
-High
+                    High
                 </label>
                 <input name="severity" type="radio" class="form-check-input" id="severityHigh">
             </div>
 
             <div class="col-md-12">
                 <label for="description" class="form-label">
-Description
+                    Description
                 </label>
                 <textarea class="form-control" id="description" minlength="50" maxlength="3000" rows="3"
                           required></textarea>
@@ -196,7 +196,7 @@ Description
 
             <div class="col-12">
                 <button class="btn btn-logo-ipsum" type="submit">
-    Submit
+                    Submit
                 </button>
             </div>
         </form>
@@ -204,12 +204,12 @@ Description
         <div id="successMessage" style="display: none">
             <div class="d-flex flex-column justify-content-center align-items-center">
                 <h2 class="my-3">
-Downloading your report now...
+                    Downloading your report now...
                 </h2>
                 <img class="my-3" src="/images/logos/logoipsum-long.png" alt="Logo Ipsum">
                 <a class="btn btn-logo-ipsum" href="/dashboard.html">
                     Return To Dashboard
-</a>
+                </a>
             </div>
         </div>
 

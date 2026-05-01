@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md bg-colour-3 fixed-top">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="<?= route('index') ?>">
             <img src="/logos/logoipsum-long.png" alt="Logo Ipsum">
         </a>
 
@@ -14,9 +14,9 @@
              aria-labelledby="offcanvasNavbarLabel">
 
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                <a href="<?= route('index') ?>" class="offcanvas-title" id="offcanvasNavbarLabel">
                     <img src="/logos/logoipsum-icon.png" alt="Logo Ipsum">
-                </h5>
+                </a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
             </div>
@@ -25,21 +25,21 @@
                 <ul class="navbar-nav justify-content-end text-center flex-grow-1 pe-3">
 
                     <li class="nav-item p-3">
-                        <a class="nav-link fs-5" aria-current="page" href="/">
+                        <a class="nav-link fs-5" aria-current="page" href="<?= route('index') ?>">
                             <i class="bi bi-house"></i>
                             Home
                         </a>
                     </li>
 
                     <li class="nav-item p-3">
-                        <a class="nav-link fs-5" href="dashboard.html">
+                        <a class="nav-link fs-5" href="">
                             <i class="bi bi-speedometer2"></i>
                             Dashboard
                         </a>
                     </li>
 
                     <li class="nav-item p-3">
-                        <a class="nav-link fs-5" href="contact.html">
+                        <a class="nav-link fs-5" href="">
                             <i class="bi bi-chat-dots"></i>
                             Contact
                         </a>
