@@ -1,10 +1,12 @@
 <?php
-/** @var Router $router */
+/** @var Router $router
+ * @var RouteGroup $group
+ */
 
-use League\Route\RouteGroup;
 use League\Route\Router;
+use League\Route\RouteGroup;
 
-$router->group('', function (RouteGroup $router) {
+$router->group('/', function (RouteGroup $router) {
     include routes_dir("public.php");
 });
 

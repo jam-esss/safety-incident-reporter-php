@@ -4,4 +4,4 @@
 use App\Controllers\public\HomeController;
 use League\Route\Router;
 
-$router->get('/', [HomeController::class, 'index'])->setName('index');
+$router->get('/', [HomeController::class, 'index'])->setName('public.index');
