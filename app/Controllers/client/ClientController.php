@@ -9,4 +9,9 @@ class ClientController
     {
         return view('client/dashboard');
     }
+
+    public function contact(): ResponseInterface
+    {
+        return view('client/contact');
+    }
 }
