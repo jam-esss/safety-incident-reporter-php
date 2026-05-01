@@ -2,6 +2,7 @@
 
 use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Message\ServerRequestInterface;
+use League\Route\Router;
 
 function initRequest(): ServerRequestInterface
 {
@@ -38,4 +39,10 @@ function routes_dir(string $path = ""): string
 function view_dir(string $path = ""): string
 {
     return app_dir("views/$path");
+}
+
+function route(string $name, array $params = []): string
+{
+    global $router;
+    return $router->getNamedRoute($name)->getPath($params);
 }
