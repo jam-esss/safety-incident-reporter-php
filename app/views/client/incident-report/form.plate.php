@@ -35,7 +35,7 @@ $this->stop();
                 <label for="userFullName" class="form-label">
                     Full Name
                 </label>
-                <input type="text" class="form-control" id="userFullname" minlength="5" required>
+                <input type="text" class="form-control" id="userFullName" minlength="5" required>
                 <div class="invalid-feedback">
                     Invalid Input.
                 </div>
@@ -206,8 +206,8 @@ $this->stop();
                 <h2 class="my-3">
                     Downloading your report now...
                 </h2>
-                <img class="my-3" src="/images/logos/logoipsum-long.png" alt="Logo Ipsum">
-                <a class="btn btn-logo-ipsum" href="/dashboard.html">
+                <img class="my-3" src="/logos/logoipsum-long.png" alt="Logo Ipsum">
+                <a class="btn btn-logo-ipsum" href="<?= route('client.dashboard') ?>>">
                     Return To Dashboard
                 </a>
             </div>

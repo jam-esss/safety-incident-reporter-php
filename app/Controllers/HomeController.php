@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\public;
+namespace App\Controllers;
 use Psr\Http\Message\ResponseInterface;
 
 class HomeController

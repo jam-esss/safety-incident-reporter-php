@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\client;
+namespace App\Controllers;
 use Psr\Http\Message\ResponseInterface;
 
 class ClientController

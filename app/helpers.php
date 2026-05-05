@@ -2,7 +2,7 @@
 
 use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Message\ServerRequestInterface;
-use League\Route\Router;
+use League\Plates\Engine;
 
 function initRequest(): ServerRequestInterface
 {
@@ -21,14 +21,14 @@ function response(?string $body = null): Laminas\Diactoros\Response
 function view(string $view, array $data = []): Laminas\Diactoros\Response
 {
     $response = response();
-    $templateEngine = new League\Plates\Engine(view_dir(), 'plate.php');
+    $templateEngine = new Engine(view_dir(), 'plate.php');
     $response->getBody()->write($templateEngine->render($view, $data));
     return $response;
 }
 
 function app_dir(string $path = ""): string
 {
-    return __DIR__."/$path";
+    return __DIR__ . "/$path";
 }
 
 function routes_dir(string $path = ""): string

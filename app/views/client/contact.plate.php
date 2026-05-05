@@ -125,8 +125,8 @@ $this->stop();
                     <br>
                     We will respond to you as soon as possible.
                 </h2>
-                <img class="my-3" src="images/logos/logoipsum-long.png" alt="Logo Ipsum">
-                <a class="btn btn-logo-ipsum" href="dashboard.html">
+                <img class="my-3" src="/logos/logoipsum-long.png" alt="Logo Ipsum">
+                <a class="btn btn-logo-ipsum" href="<?= route('client.dashboard') ?>">
                     Return To Dashboard
                 </a>
             </div>
