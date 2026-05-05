@@ -45,6 +45,23 @@
                         </a>
                     </li>
 
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li class="nav-item p-3">
+                            <form action="/logout" method="POST" style="display: inline;">
+                                <button class="btn btn-logo-ipsum fs-5" type="submit">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+
+                    <?php else: ?>
+                        <li class="nav-item p-3">
+                            <a class="btn btn-logo-ipsum fs-5" href="/login">
+                                Login
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
                 </ul>
             </div>
         </div>
