@@ -18,7 +18,9 @@
 </head>
 <body>
 <?= $this->fetch('templates/header') ?>
-<?= $this->section('content') ?>
+<section class="d-flex justify-content-center align-items-center <?= $bgImage ?? '' ?>">
+    <?= $this->section('content') ?>
+</section>
 <?= $this->section('templates/footer') ?>
 <!-- Import main.js which includes Bootstrap's JS -->
 <script src="/scripts/main.js" type="module"></script>
