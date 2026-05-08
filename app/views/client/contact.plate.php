@@ -118,19 +118,5 @@ $this->stop();
             </div>
         </form>
 
-        <div id="successMessage" style="display: none">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <h2 class="my-3">
-                    Thank you for your query!
-                    <br>
-                    We will respond to you as soon as possible.
-                </h2>
-                <img class="my-3" src="/logos/logoipsum-long.png" alt="Logo Ipsum">
-                <a class="btn btn-logo-ipsum" href="<?= route('client.dashboard') ?>">
-                    Return To Dashboard
-                </a>
-            </div>
-        </div>
-
     </div>
 </section>

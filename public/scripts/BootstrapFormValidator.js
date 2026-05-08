@@ -12,11 +12,5 @@ forms.forEach((form) => {
             return;
         }
 
-        if (successMessage) {
-            event.preventDefault();
-
-            form.style.display = 'none';
-            successMessage.style.display = 'block';
-        }
     });
 });
