@@ -4,17 +4,47 @@
  */
 
 use App\Controllers\AuthController;
+use App\Controllers\ClientController;
+use App\Controllers\HomeController;
+use App\Controllers\UsersController;
 use League\Route\Router;
 use League\Route\RouteGroup;
 use App\Middleware\LoginMiddleware;
 
-$router->group('/', function (RouteGroup $router) {
-    include routes_dir("public.php");
+/*
+ * -------------
+ * PUBLIC ROUTES
+ * -------------
+ */
+// Index
+$router->get('/', [HomeController::class, 'index'])->setName('index');
+
+/*
+ * -------------
+ * CLIENT ROUTES
+ * -------------
+ */
+// Index
+$router->get('/client', [ClientController::class, 'index'])->setName('client.dashboard')->middleware(new LoginMiddleware());
+
+// Incident
+$router->group('/client/incident', function (RouteGroup $router) {
+    $router->get('/', [ClientController::class, 'incidentForm'])->setName('client.incidentform')->middleware(new LoginMiddleware());
 });
 
-$router->group('/client', function (RouteGroup $router) {
-    include routes_dir("client.php");
+// Contact
+$router->get('/client/contact', [ClientController::class, 'contact'])->setName('client.contact')->middleware(new LoginMiddleware());
+
+// Users
+$router->group('/client/users', function (RouteGroup $router) {
+    $router->get('/', [UsersController::class, 'index'])->setName('client.users.index');
 })->middleware(new LoginMiddleware());
+
+/*
+ * ---------------------
+ * AUTHENTICATION ROUTES
+ * ---------------------
+ */
 $router->get('/login', [AuthController::class, 'loginForm'])->setName('login');
 $router->post('/login', [AuthController::class, 'login']);
-$router->post('/logout', [AuthController::class, 'logout']);
+$router->post('/logout', [AuthController::class, 'logout'])->setName('logout');
