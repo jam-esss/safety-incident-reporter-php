@@ -1,8 +1,17 @@
 <?php
 
+use App\App;
 use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Message\ServerRequestInterface;
 use League\Plates\Engine;
+
+function app(): App
+{
+    if (!isset($GLOBALS['app'])) {
+        $GLOBALS['app'] = new App();
+    }
+    return $GLOBALS['app'];
+}
 
 function initRequest(): ServerRequestInterface
 {

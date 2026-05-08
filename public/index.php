@@ -9,6 +9,8 @@ use Laminas\Diactoros\ServerRequestFactory;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 
 $request = initRequest();
+// Initialise app
+app();
 $router = new Router();
 
 require routes_dir("routes.php");
