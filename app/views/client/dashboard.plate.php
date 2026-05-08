@@ -39,10 +39,10 @@ $this->stop();
         </div>
 
         <div class="col-4 col-md-3 g-0 p-1">
-            <a class="tile bg-colour-4">
-                <i class="bi bi-bell-fill"></i>
+            <a href="<?= route('client.users.index') ?>" class="tile btn-logo-ipsum">
+                <i class="bi bi-people-fill"></i>
                 <span>
-                    Notifications
+                    Users
                 </span>
             </a>
         </div>
