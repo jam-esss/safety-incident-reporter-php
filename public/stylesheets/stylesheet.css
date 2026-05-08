@@ -61,6 +61,10 @@ a:not([href]) {
     color: #fff;
 }
 
+.logo-ipsum-link{
+    color: var(--colour-1);
+}
+
 nav{
     border-bottom: 1px solid var(--colour-1)
 }
