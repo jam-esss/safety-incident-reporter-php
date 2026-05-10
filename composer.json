@@ -25,8 +25,7 @@
     "league/plates": "^3.6",
     "laminas/laminas-diactoros": "^3.8",
     "laminas/laminas-httphandlerrunner": "^2.13",
-    "vlucas/phpdotenv": "^5.6",
-    "ext-http": "*"
+    "vlucas/phpdotenv": "^5.6"
   },
   "require-dev": {
     "phpunit/phpunit": "^10.0",
