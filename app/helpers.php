@@ -1,7 +1,9 @@
 <?php
 
 use App\App;
+use Laminas\Diactoros\Response\RedirectResponse;
 use Laminas\Diactoros\ServerRequestFactory;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use League\Plates\Engine;
 
@@ -54,4 +56,9 @@ function route(string $name, array $params = []): string
 {
     global $router;
     return $router->getNamedRoute($name)->getPath($params);
+}
+
+function redirect(string $url, int $status = 302): ResponseInterface
+{
+    return new RedirectResponse($url, $status);
 }
