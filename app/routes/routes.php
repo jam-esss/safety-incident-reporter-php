@@ -38,6 +38,7 @@ $router->get('/client/contact', [ClientController::class, 'contact'])->setName('
 // Users
 $router->group('/client/users', function (RouteGroup $router) {
     $router->get('/', [UsersController::class, 'index'])->setName('client.users.index');
+    $router->post('delete/{id}', [UsersController::class, 'destroy'])->setName('client.users.delete');
 })->middleware(new LoginMiddleware());
 
 /*

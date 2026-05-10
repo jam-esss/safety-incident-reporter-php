@@ -1,4 +1,9 @@
 <?php
+/**
+ * @var \App\Classes\User $users
+ */
+?>
+<?php
 $this->layout('templates/layout', ['title' => 'Users', 'description' => 'Logoipsum Users']);
 ?>
 <?php
@@ -51,30 +56,34 @@ $this->stop();
             </tr>
             </thead>
             <tbody>
+            <?php foreach ($users as $user): ?>
             <tr class="text-center">
                 <td>
-                    1
+                    <?= $user['id'] ?>
                 </td>
                 <td>
-                    James
+                    <?= $user['fn'] ?>
                 </td>
                 <td>
-                    PG
+                    <?= $user['sn'] ?>
                 </td>
                 <td>
-                    <a class="logo-ipsum-link" href="mailto:jpg@example.com">
-                        jpg@example.com
+                    <a class="logo-ipsum-link" href="mailto:<?= $user['email'] ?>">
+                        <?= $user['email'] ?>
                     </a>
                 </td>
                 <td>
-                    01/01/2004
+                    <?= $user['created_at'] ?>
                 </td>
                 <td>
-                    <a class="btn btn-logo-ipsum" href="#">
-                        <i class="bi bi-trash-fill"></i>
-                    </a>
+                    <form method="POST" action="<?= route('client.users.delete', ['id' => $user['id']]) ?>">
+                        <button class="btn btn-logo-ipsum" type="submit">
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
+                    </form>
                 </td>
             </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
