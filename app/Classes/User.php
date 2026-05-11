@@ -18,17 +18,22 @@ class User
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function create(string $fn, string $sn, string $email): bool
+    public function create(string $fn, string $sn, string $email, string $password): bool
     {
         $stmt = app()->getDb()->prepare("
-            INSERT INTO users (fn, sn, email)
-            VALUES (:fn, :sn, :email)
+            INSERT INTO users (fn, sn, email, password, tkn)
+            VALUES (:fn, :sn, :email, :password, :tkn)
         ");
+
+        $tkn = bin2hex(random_bytes(6));
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         return $stmt->execute([
             'fn' => $fn,
             'sn' => $sn,
-            'email' => $email
+            'email' => $email,
+            'tkn' => $tkn,
+            'password' => $hashedPassword
         ]);
     }
 

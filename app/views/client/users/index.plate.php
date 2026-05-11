@@ -28,7 +28,7 @@ $this->stop();
     <h1>
         Users
     </h1>
-    <a class="btn btn-logo-ipsum my-2" href="#">
+    <a class="btn btn-logo-ipsum my-2" href="<?= route('client.users.create') ?>">
         Add New
     </a>
     <div class="table-responsive w-100">
