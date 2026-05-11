@@ -21,7 +21,7 @@ class User
     public function findById(int $id): ?array
     {
         $stmt = app()->getDb()->prepare("
-            SELECT id, fn, sn, email, avatar, tkn, created_at 
+            SELECT id, fn, sn, email, avatar, permissions, tkn, created_at 
             FROM users 
             WHERE id = :id 
             AND removed_at IS NULL 
