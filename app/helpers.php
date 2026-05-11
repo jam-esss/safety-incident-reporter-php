@@ -12,7 +12,21 @@ function app(): App
     if (!isset($GLOBALS['app'])) {
         $GLOBALS['app'] = new App();
     }
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
     return $GLOBALS['app'];
+}
+
+function csrf_token(): string
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
 }
 
 function initRequest(): ServerRequestInterface
@@ -29,10 +43,13 @@ function response(?string $body = null): Laminas\Diactoros\Response
     return $response;
 }
 
-function view(string $view, array $data = []): Laminas\Diactoros\Response
+function view(string $view, array $data = []): ResponseInterface
 {
-    $response = response();
+    $data['csrf_token'] = csrf_token();
+
+    $response = new Laminas\Diactoros\Response;
     $templateEngine = new Engine(view_dir(), 'plate.php');
+
     $response->getBody()->write($templateEngine->render($view, $data));
     return $response;
 }
