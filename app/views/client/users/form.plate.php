@@ -12,8 +12,7 @@ $this->stop();
 <?php
 $this->push('scripts');
 ?>
-<!-- Import main.js which includes Bootstrap's JS -->
-<script src="/scripts/main.js" type="module"></script>
+
 <?php
 $this->stop();
 ?>
