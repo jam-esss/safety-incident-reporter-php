@@ -4,7 +4,7 @@
  */
 ?>
 <?php
-$this->layout('templates/layout', ['title' => 'Users', 'description' => 'Logoipsum Users']);
+$this->layout('templates/layout', ['title' => 'Logoipsum | Users', 'description' => 'Logoipsum Users']);
 ?>
 <?php
 $this->push('styles');

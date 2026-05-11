@@ -1,5 +1,5 @@
 <?php
-$this->layout('templates/layout', ['title' => 'Home', 'description' => 'Logoipsum Homepage', 'bgImage' => 'bg-image-1']);
+$this->layout('templates/layout', ['title' => 'Logoipsum | Home', 'description' => 'Logoipsum Homepage', 'bgImage' => 'bg-image-1']);
 ?>
 <?php
 $this->push('styles');

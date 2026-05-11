@@ -1,5 +1,5 @@
 <?php
-$this->layout('templates/layout', ['title' => 'Contact', 'description' => 'Logoipsum Contact']);
+$this->layout('templates/layout', ['title' => 'Logoipsum | Contact', 'description' => 'Logoipsum Contact']);
 ?>
 <?php
 $this->push('styles');
