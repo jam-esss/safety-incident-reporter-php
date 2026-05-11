@@ -19,12 +19,16 @@ $this->stop();
 
 <div class="row d-flex justify-content-center align-items-center m-1">
 
+    <h1>
+        Hello, <?= $user['fn'] ?>
+    </h1>
+
     <div class="col-4 col-md-3 g-0 p-1">
         <a href="<?= route('index') ?>" class="tile btn-logo-ipsum">
             <i class="bi bi-house-door-fill"></i>
             <span>
-                    Home
-                </span>
+                Home
+            </span>
         </a>
     </div>
 
@@ -32,8 +36,8 @@ $this->stop();
         <a class="tile bg-colour-4">
             <i class="bi bi-person-circle"></i>
             <span>
-                    Profile
-                </span>
+                Profile
+            </span>
         </a>
     </div>
 
@@ -41,8 +45,8 @@ $this->stop();
         <a href="<?= route('client.users.index') ?>" class="tile btn-logo-ipsum">
             <i class="bi bi-people-fill"></i>
             <span>
-                    Users
-                </span>
+                Users
+            </span>
         </a>
     </div>
 
@@ -50,8 +54,8 @@ $this->stop();
         <a class="tile bg-colour-4">
             <i class="bi bi-gear-fill"></i>
             <span>
-                    Settings
-                </span>
+                Settings
+            </span>
         </a>
     </div>
 
@@ -59,8 +63,8 @@ $this->stop();
         <a href="<?= route('client.incidentform') ?>" class="tile-wide btn-logo-ipsum">
             <i class="bi bi-flag-fill"></i>
             <span>
-                    Report Incident
-                </span>
+                Report Incident
+            </span>
         </a>
     </div>
 
@@ -68,8 +72,8 @@ $this->stop();
         <a class="tile-wide bg-colour-4">
             <i class="bi bi-card-checklist"></i>
             <span>
-                    Reported Incidents
-                </span>
+                Reported Incidents
+            </span>
         </a>
     </div>
 
@@ -77,8 +81,8 @@ $this->stop();
         <a class="tile bg-colour-4">
             <i class="bi bi-archive-fill"></i>
             <span>
-                    Files
-                </span>
+                Files
+            </span>
         </a>
     </div>
 
@@ -86,8 +90,8 @@ $this->stop();
         <a class="tile bg-colour-4">
             <i class="bi bi-tools"></i>
             <span>
-                    Equipment
-                </span>
+                Equipment
+            </span>
         </a>
     </div>
 

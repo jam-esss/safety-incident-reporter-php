@@ -18,6 +18,23 @@ class User
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function findById(int $id): ?array
+    {
+        $stmt = app()->getDb()->prepare("
+            SELECT id, fn, sn, email, avatar, tkn, created_at 
+            FROM users 
+            WHERE id = :id 
+            AND removed_at IS NULL 
+            LIMIT 1
+        ");
+
+        $stmt->execute(['id' => $id]);
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $user ?: null;
+    }
+
     public function findByEmail(string $email): ?array
     {
         $stmt = app()->getDb()->prepare("

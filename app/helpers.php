@@ -1,6 +1,8 @@
 <?php
 
 use App\App;
+use App\Classes\User;
+use Laminas\Diactoros\Response;
 use Laminas\Diactoros\Response\RedirectResponse;
 use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Message\ResponseInterface;
@@ -43,13 +45,30 @@ function response(?string $body = null): Laminas\Diactoros\Response
     return $response;
 }
 
+function auth(): ?array
+{
+    static $user = null;
+
+    if ($user !== null) {
+        return $user;
+    }
+
+    if (isset($_SESSION['user_id'])) {
+        $user = (new User)->findById((int)$_SESSION['user_id']);
+    }
+
+    return $user;
+}
+
 function view(string $view, array $data = []): ResponseInterface
 {
-    $data['csrf_token'] = csrf_token();
-
-    $response = new Laminas\Diactoros\Response;
     $templateEngine = new Engine(view_dir(), 'plate.php');
 
+    $data['csrf_token'] = csrf_token();
+
+    $templateEngine->addData(['user' => auth()]);
+
+    $response = new Response;
     $response->getBody()->write($templateEngine->render($view, $data));
     return $response;
 }
