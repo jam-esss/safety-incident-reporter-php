@@ -23,21 +23,25 @@ $this->stop();
         Sign In
     </h2>
     <form class="needs-validation" action="" method="POST" novalidate>
-        <div class="form-group">
-            <label class="form-label" for="username">
-                Username / Email
+        <div class="col-12">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+            <label class="form-label" for="userEmail">
+                Email
             </label>
-            <input class="form-control" type="text" id="username" name="username" required>
+            <input class="form-control" type="text" id="userEmail" name="email" value="<?= ($old['email'] ?? '') ?>" minlength="5" required>
             <div class="invalid-feedback">
                 Invalid Input.
             </div>
+            <small class="text-danger">
+                <?= ($errors ?? '') ?>
+            </small>
         </div>
 
-        <div class="form-group">
+        <div class="col-12">
             <label class="form-label" for="password">
                 Password
             </label>
-            <input class="form-control" type="password" id="password" name="password" required>
+            <input class="form-control" type="password" id="password" name="password" minlength="8" required>
             <div class="invalid-feedback">
                 Invalid Input.
             </div>

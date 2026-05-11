@@ -18,6 +18,19 @@ class User
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function findByEmail(string $email): ?array
+    {
+        $stmt = app()->getDb()->prepare("
+        SELECT * FROM users 
+        WHERE email = :email AND removed_at IS NULL 
+        LIMIT 1
+    ");
+        $stmt->execute(['email' => $email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $user ?: null;
+    }
+
     public function create(string $fn, string $sn, string $email, string $password): bool
     {
         $stmt = app()->getDb()->prepare("

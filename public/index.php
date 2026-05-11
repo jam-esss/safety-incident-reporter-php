@@ -10,7 +10,7 @@ use Laminas\Diactoros\ServerRequestFactory;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 
 $request = initRequest();
-
+session_start();
 app();
 
 $router = new Router();
