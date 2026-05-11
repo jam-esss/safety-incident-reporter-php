@@ -9,7 +9,7 @@ class User
     public function all(): array
     {
         $stmt = app()->getDb()->query("
-            SELECT id, fn, sn, email, created_at
+            SELECT id, fn, sn, email, avatar, created_at
             FROM users
             WHERE removed_at IS NULL
             ORDER BY id DESC

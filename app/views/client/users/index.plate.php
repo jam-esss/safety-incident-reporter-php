@@ -38,6 +38,9 @@ $this->stop();
                     User ID
                 </th>
                 <th>
+                    Avatar
+                </th>
+                <th>
                     First Name
                 </th>
                 <th>
@@ -56,32 +59,36 @@ $this->stop();
             </thead>
             <tbody>
             <?php foreach ($users as $user): ?>
-            <tr class="text-center">
-                <td>
-                    <?= $user['id'] ?>
-                </td>
-                <td>
-                    <?= $user['fn'] ?>
-                </td>
-                <td>
-                    <?= $user['sn'] ?>
-                </td>
-                <td>
-                    <a class="logo-ipsum-link" href="mailto:<?= $user['email'] ?>">
-                        <?= $user['email'] ?>
-                    </a>
-                </td>
-                <td>
-                    <?= $user['created_at'] ?>
-                </td>
-                <td>
-                    <form method="POST" action="<?= route('client.users.delete', ['id' => $user['id']]) ?>">
-                        <button class="btn btn-logo-ipsum" type="submit">
-                            <i class="bi bi-trash-fill"></i>
-                        </button>
-                    </form>
-                </td>
-            </tr>
+                <tr class="text-center">
+                    <td>
+                        <?= $user['id'] ?>
+                    </td>
+                    <td>
+                        <img src="<?= ($user['avatar'] ?? '/uploads/avatars/blank.png') ?>"
+                             alt="<?= $user['name'] ?>'s Avatar" style="width: 32px;">
+                    </td>
+                    <td>
+                        <?= $user['fn'] ?>
+                    </td>
+                    <td>
+                        <?= $user['sn'] ?>
+                    </td>
+                    <td>
+                        <a class="logo-ipsum-link" href="mailto:<?= $user['email'] ?>">
+                            <?= $user['email'] ?>
+                        </a>
+                    </td>
+                    <td>
+                        <?= $user['created_at'] ?>
+                    </td>
+                    <td>
+                        <form method="POST" action="<?= route('client.users.delete', ['id' => $user['id']]) ?>">
+                            <button class="btn btn-logo-ipsum" type="submit">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
