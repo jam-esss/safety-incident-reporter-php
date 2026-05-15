@@ -14,9 +14,4 @@ class ClientController
     {
         return view('client/contact');
     }
-
-    public function incidentForm(): ResponseInterface
-    {
-        return view('client/incident-report/form');
-    }
 }
