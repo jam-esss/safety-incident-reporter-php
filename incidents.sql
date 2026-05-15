@@ -5,6 +5,7 @@ CREATE TABLE `safety-incident-reporter`.`incidents`
     `site` TINYTEXT NOT NULL COMMENT 'Site Name (Will become ID)',
     `description` TEXT NOT NULL COMMENT 'Description',
     `severity` VARCHAR(10) NOT NULL COMMENT 'Severity',
+    `logged_at` TIMESTAMP NOT NULL COMMENT 'Time the User Logged.',
     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
     `removed_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'Time Removed',
     PRIMARY KEY (`id`)

@@ -6,6 +6,7 @@
 use App\Controllers\AuthController;
 use App\Controllers\ClientController;
 use App\Controllers\HomeController;
+use App\Controllers\IncidentController;
 use App\Controllers\UsersController;
 use League\Route\Router;
 use League\Route\RouteGroup;
@@ -29,7 +30,8 @@ $router->get('/client', [ClientController::class, 'index'])->setName('client.das
 
 // Incident
 $router->group('/client/incident', function (RouteGroup $router) {
-    $router->get('/', [ClientController::class, 'incidentForm'])->setName('client.incidentform')->middleware(new LoginMiddleware());
+    $router->get('/', [IncidentController::class, 'create'])->setName('client.incidentform')->middleware(new LoginMiddleware());
+    $router->post('/', [IncidentController::class, 'store']);
 });
 
 // Contact
