@@ -69,7 +69,7 @@ $this->stop();
     </div>
 
     <div class="col-8 col-md-6 g-0 p-1">
-        <a class="tile-wide bg-colour-4">
+        <a href="<?= route('client.incident.index') ?>" class="tile-wide btn-logo-ipsum">
             <i class="bi bi-card-checklist"></i>
             <span>
                 Reported Incidents

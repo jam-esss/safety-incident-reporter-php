@@ -30,9 +30,13 @@ $router->get('/client', [ClientController::class, 'index'])->setName('client.das
 
 // Incident
 $router->group('/client/incident', function (RouteGroup $router) {
-    $router->get('/', [IncidentController::class, 'create'])->setName('client.incidentform')->middleware(new LoginMiddleware());
-    $router->post('/', [IncidentController::class, 'store']);
-});
+    $router->get('/', [IncidentController::class, 'index'])->setName('client.incident.index');
+
+    $router->get('/create', [IncidentController::class, 'create'])->setName('client.incidentform');
+    $router->post('/create', [IncidentController::class, 'store']);
+
+    $router->post('delete/{id}', [IncidentController::class, 'destroy'])->setName('client.incident.delete');
+})->middleware(new LoginMiddleware());
 
 // Contact
 $router->get('/client/contact', [ClientController::class, 'contact'])->setName('client.contact')->middleware(new LoginMiddleware());

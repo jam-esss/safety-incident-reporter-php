@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Classes\Incident;
+use App\Classes\User;
 use App\Classes\Validator;
 use Exception;
 use Psr\Http\Message\ResponseInterface;
@@ -18,12 +19,21 @@ class IncidentController
 
     public function index(): ResponseInterface
     {
-        //
+        $incidents = $this->incidents->all();
+        $user = new User();
+
+        foreach ($incidents as &$incident) {
+            $incident['reporter'] = $user->findById($incident['reporter_id']);
+        }
+
+        return view('client/incident/index', [
+            'incidents' => $incidents
+        ]);
     }
 
     public function create(): ResponseInterface
     {
-        return view('client/incident-report/form');
+        return view('client/incident/form');
     }
 
     public function store(ServerRequestInterface $request): ResponseInterface
@@ -45,7 +55,7 @@ class IncidentController
         ];
 
         if (!$validator->validate($data, $rules)) {
-            return view('client/incident-report/form', [
+            return view('client/incident/form', [
                 'errors' => $validator->getErrors(),
                 'old' => $data
             ]);
@@ -63,5 +73,14 @@ class IncidentController
         );
 
         return redirect(route('client.dashboard'));
+    }
+
+    public function destroy(ServerRequestInterface $request): ResponseInterface
+    {
+        $id = (int)$request->getAttribute('id');
+
+        $this->incidents->destroy($id);
+
+        return redirect(route('client.incident.index'));
     }
 }
