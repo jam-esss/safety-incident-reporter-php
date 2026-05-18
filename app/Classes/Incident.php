@@ -52,6 +52,33 @@ class Incident
         ]);
     }
 
+    public function update(
+        int    $id,
+        string $site,
+        string $description,
+        string $severity,
+        string $logged_at
+    ): bool
+    {
+        $stmt = app()->getDb()->prepare("
+        UPDATE incidents
+        SET site = :site,
+            description = :description,
+            severity = :severity,
+            logged_at = :logged_at
+        WHERE id = :id
+        AND removed_at IS NULL
+    ");
+
+        return $stmt->execute([
+            'id' => $id,
+            'site' => $site,
+            'description' => $description,
+            'severity' => $severity,
+            'logged_at' => $logged_at,
+        ]);
+    }
+
     public function destroy(int $id): bool
     {
         $stmt = app()->getDb()->prepare("

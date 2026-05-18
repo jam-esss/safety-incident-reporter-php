@@ -27,7 +27,7 @@ $this->stop();
     <h1>
         Incidents
     </h1>
-    <a class="btn btn-logo-ipsum my-2" href="<?= route('client.incidentform') ?>">
+    <a class="btn btn-logo-ipsum my-2" href="<?= route('client.incident.create') ?>">
         Add New
     </a>
     <div class="table-responsive w-100">
@@ -73,14 +73,20 @@ $this->stop();
                     <td>
                         <?= $incident['description'] ?>
                     </td>
-                    <td>
-                        <?= $incident['severity'] ?>
+                    <td class="bg-<?= $incident['severity'] === 'high' ? 'danger' : ($incident['severity'] === 'medium' ? 'warning' : 'success') ?>">
+                        <?= ucwords($incident['severity']) ?>
                     </td>
                     <td>
                         <?= $incident['logged_at'] ?>
                     </td>
                     <td>
-                        <form method="POST" action="<?= route('client.incident.delete', ['id' => $incident['id']]) ?>">
+                        <a class=" btn btn-logo-ipsum m-1
+                    "
+                           href="<?= route('client.incident.edit', ['id' => $incident['id']]) ?>">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                        <form class="m-1" method="POST"
+                              action="<?= route('client.incident.delete', ['id' => $incident['id']]) ?>">
                             <button class="btn btn-logo-ipsum" type="submit">
                                 <i class="bi bi-trash-fill"></i>
                             </button>

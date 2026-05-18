@@ -60,7 +60,7 @@ $this->stop();
     </div>
 
     <div class="col-8 col-md-6 g-0 p-1">
-        <a href="<?= route('client.incidentform') ?>" class="tile-wide btn-logo-ipsum">
+        <a href="<?= route('client.incident.create') ?>" class="tile-wide btn-logo-ipsum">
             <i class="bi bi-flag-fill"></i>
             <span>
                 Report Incident

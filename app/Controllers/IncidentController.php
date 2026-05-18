@@ -75,6 +75,70 @@ class IncidentController
         return redirect(route('client.dashboard'));
     }
 
+    public function edit(ServerRequestInterface $request): ResponseInterface
+    {
+        $id = (int) $request->getAttribute('id');
+        $incident = $this->incidents->findById($id);
+
+        if (!$incident) {
+            throw new Exception("Incident not found");
+        }
+
+        return view('client/incident/form', [
+            'incident' => $incident
+        ]);
+    }
+
+    public function update(ServerRequestInterface $request, array $args): ResponseInterface
+    {
+        $id = (int) $args['id'];
+
+        $incident = $this->incidents->findById($id);
+
+        if (!$incident) {
+            throw new Exception("Incident not found");
+        }
+
+        $data = $request->getParsedBody();
+
+        if (
+            !isset($data['csrf_token']) ||
+            $data['csrf_token'] !== ($_SESSION['csrf_token'] ?? '')
+        ) {
+            throw new Exception("CSRF token validation failed.");
+        }
+
+        $validator = new Validator();
+
+        $rules = [
+            'site' => ['required'],
+            'time' => ['required'],
+            'date' => ['required'],
+            'severity' => ['required'],
+            'description' => ['required'],
+        ];
+
+        if (!$validator->validate($data, $rules)) {
+            return view('client/incident/form', [
+                'errors' => $validator->getErrors(),
+                'old' => $data,
+                'incident' => $incident
+            ]);
+        }
+
+        $data['logged_at'] = $data['date'] . ' ' . $data['time'];
+
+        $this->incidents->update(
+            $id,
+            $data['site'],
+            $data['description'],
+            $data['severity'],
+            $data['logged_at'],
+        );
+
+        return redirect(route('client.dashboard'));
+    }
+
     public function destroy(ServerRequestInterface $request): ResponseInterface
     {
         $id = (int)$request->getAttribute('id');
