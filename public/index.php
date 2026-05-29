@@ -1,23 +1,20 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 
-ini_set('error_log', __DIR__.'/../errors.log');
+define('LARAVEL_START', microtime(true));
 
-use League\Route\Router;
-use League\Route\Strategy\ApplicationStrategy;
-use Laminas\Diactoros\ServerRequestFactory;
-use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
+// Determine if the application is in maintenance mode...
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
 
-$request = initRequest();
-session_start();
-app();
+// Register the Composer autoloader...
+require __DIR__.'/../vendor/autoload.php';
 
-$router = new Router();
-$router->setStrategy(new ApplicationStrategy());
+// Bootstrap Laravel and handle the request...
+/** @var Application $app */
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
-require routes_dir("routes.php");
-
-$response = $router->dispatch($request);
-
-(new SapiEmitter)->emit($response);
+$app->handleRequest(Request::capture());
